@@ -29,4 +29,21 @@
 
 .advice {
   font-size: 28px;
+  text-align: center;
+}
+
+.divider {
+  margin: 15px 0px;
+}
+
+.dice__btn {
+  background-image: url(./../../assets/images/icon-dice.svg);
+  background-repeat: no-repeat;
+  background-color: var(--neon-green);
+  background-position: center;
+  width: 65px;
+  height: 65px;
+  border: none;
+  border-radius: 180px;
+  cursor: pointer;
 }
