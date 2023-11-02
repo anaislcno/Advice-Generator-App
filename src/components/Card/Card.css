@@ -64,6 +64,15 @@
     border-radius: 10px;
   }
 
+  .advice__nb {
+    font-size: 12px;
+  }
+
+  .advice {
+    font-size: 24px;
+    text-align: center;
+  }
+
   .divider {
     margin: 15px 0px 35px 0px;
   }
