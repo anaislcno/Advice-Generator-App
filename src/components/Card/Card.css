@@ -7,7 +7,7 @@
 }
 
 .card {
-  transform: translateY(60%);
+  transform: translateY(65%);
   background-color: var(--dark-greyish-blue);
   padding: 45px 35px;
   border-radius: 15px;
