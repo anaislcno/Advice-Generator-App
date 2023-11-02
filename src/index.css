@@ -25,3 +25,7 @@ body {
   color: var(--light-cyan);
   background-color: var(--dark-blue);
 }
+
+.container {
+  min-height: 100vh;
+}

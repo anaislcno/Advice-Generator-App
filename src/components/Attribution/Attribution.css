@@ -5,6 +5,9 @@
   font-weight: 400;
   text-align: center;
   margin: 15px auto 10px auto;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 .attribution a {
