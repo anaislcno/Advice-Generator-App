@@ -1,6 +1,6 @@
 :root {
   --light-cyan: hsl(193, 38%, 86%);
-  --neon-green: hsl(150, 100%, 66%);
+  --neon-green: rgb(82, 255, 168);
   --greyish-blue: hsl(217, 19%, 38%);
   --dark-greyish-blue: hsl(217, 19%, 24%);
   --dark-blue: hsl(218, 23%, 16%);
@@ -9,15 +9,16 @@
 .card {
   transform: translateY(45%);
   background-color: var(--dark-greyish-blue);
-  padding: 45px;
-  border-radius: 10px;
-  max-width: 500px;
+  padding: 45px 35px;
+  border-radius: 15px;
+  max-width: 550px;
   min-height: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  position: relative;
 }
 
 .advice__nb {
@@ -33,7 +34,7 @@
 }
 
 .divider {
-  margin: 15px 0px;
+  margin: 15px 0px 25px 0px;
 }
 
 .dice__btn {
@@ -46,4 +47,12 @@
   border: none;
   border-radius: 180px;
   cursor: pointer;
+  position: absolute;
+  bottom: -32px;
+}
+
+.dice__btn:hover {
+  box-shadow: 0px 0px 40px 0px rgba(82, 255, 168, 0.9);
+  -webkit-box-shadow: 0px 0px 40px 0px rgba(82, 255, 168, 0.9);
+  -moz-box-shadow: 0px 0px 40px 0px rgba(82, 255, 168, 0.9);
 }
