@@ -1,0 +1,32 @@
+:root {
+  --light-cyan: hsl(193, 38%, 86%);
+  --neon-green: hsl(150, 100%, 66%);
+  --greyish-blue: hsl(217, 19%, 38%);
+  --dark-greyish-blue: hsl(217, 19%, 24%);
+  --dark-blue: hsl(218, 23%, 16%);
+}
+
+.card {
+  transform: translateY(45%);
+  background-color: var(--dark-greyish-blue);
+  padding: 45px;
+  border-radius: 10px;
+  max-width: 500px;
+  min-height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.advice__nb {
+  text-transform: uppercase;
+  color: var(--neon-green);
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+.advice {
+  font-size: 28px;
+}
