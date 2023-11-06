@@ -6,14 +6,22 @@
   --dark-blue: hsl(218, 23%, 16%);
 }
 
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .card {
-  transform: translateY(65%);
   background-color: var(--dark-greyish-blue);
   padding: 45px 35px;
   border-radius: 15px;
   max-width: 550px;
-  min-height: 100%;
-  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

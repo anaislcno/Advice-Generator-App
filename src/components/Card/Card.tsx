@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import "./Card.css";
 import Divider from "./../../assets/images/pattern-divider-desktop.svg";
 import MobileDivider from "./../../assets/images/pattern-divider-mobile.svg";
+import Loader from "../Loader/Loader";
 
 const Card = () => {
   const [advice, setAdvice] = useState({ slip_id: 0, advice: "" });
   const [width, setWidth] = useState(window.innerWidth > 767);
+  const [loading, setLoading] = useState(false);
 
   const updateMedia = () => {
     setWidth(window.innerWidth > 767);
@@ -20,6 +22,7 @@ const Card = () => {
   }, []);
 
   const fetchAdvice = () => {
+    setLoading(true);
     fetch("https://api.adviceslip.com/advice")
       .then((response) => response.json())
       .then((data) => {
@@ -35,6 +38,9 @@ const Card = () => {
       })
       .catch((err) => {
         console.log(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -43,10 +49,14 @@ const Card = () => {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <section className="card">
         <h1 className="advice__nb">Advice #{advice.slip_id}</h1>
-        <p className="advice">"{advice.advice}"</p>
+        {loading ? (
+          <Loader color="#52ffa8" loading={loading} />
+        ) : (
+          <p className="advice">"{advice.advice}"</p>
+        )}
         {width ? (
           <img className="divider" src={Divider} alt="divider" />
         ) : (
@@ -54,7 +64,7 @@ const Card = () => {
         )}
         <button onClick={fetchAdvice} className="dice__btn"></button>
       </section>
-    </>
+    </div>
   );
 };
 
