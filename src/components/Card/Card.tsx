@@ -4,8 +4,13 @@ import Divider from "./../../assets/images/pattern-divider-desktop.svg";
 import MobileDivider from "./../../assets/images/pattern-divider-mobile.svg";
 import Loader from "../Loader/Loader";
 
+type CardProps = {
+  slip_id: number;
+  advice: string;
+};
+
 const Card = () => {
-  const [advice, setAdvice] = useState({ slip_id: 0, advice: "" });
+  const [advice, setAdvice] = useState<CardProps>({ slip_id: 0, advice: "" });
   const [width, setWidth] = useState(window.innerWidth > 767);
   const [loading, setLoading] = useState(false);
 
@@ -21,11 +26,18 @@ const Card = () => {
     };
   }, []);
 
+  type fetchAdviceProps = {
+    slip: {
+      id: number;
+      advice: string;
+    };
+  };
+
   const fetchAdvice = () => {
     setLoading(true);
     fetch("https://api.adviceslip.com/advice")
       .then((response) => response.json())
-      .then((data) => {
+      .then((data: fetchAdviceProps) => {
         console.log(data);
         if (data.slip && data.slip.advice) {
           setAdvice({
@@ -46,6 +58,7 @@ const Card = () => {
 
   useEffect(() => {
     fetchAdvice();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
