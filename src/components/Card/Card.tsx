@@ -38,7 +38,6 @@ const Card = () => {
     fetch("https://api.adviceslip.com/advice")
       .then((response) => response.json())
       .then((data: fetchAdviceProps) => {
-        console.log(data);
         if (data.slip && data.slip.advice) {
           setAdvice({
             slip_id: data.slip.id,
