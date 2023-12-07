@@ -35,7 +35,7 @@ const Card = () => {
 
   const fetchAdvice = () => {
     setLoading(true);
-    fetch("https://api.adviceslip.com/advice")
+    fetch("https://api.adviceslip.com/advice", { cache: "no-store" })
       .then((response) => response.json())
       .then((data: fetchAdviceProps) => {
         if (data.slip && data.slip.advice) {
