@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { AdviceModel, fetchAdviceProps } from "../types/Advice";
+import { AdviceModel, fetchAdviceProps } from "../types/advice";
 
 const useAdviceFetcher = () => {
   const [advice, setAdvice] = useState<AdviceModel>({
