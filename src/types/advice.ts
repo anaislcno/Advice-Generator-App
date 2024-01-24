@@ -8,6 +8,6 @@ export interface FetchAdviceProps {
 
 // Data model for an advice
 export interface AdviceModel {
-  slip_id: number;
-  advice: string;
+  slip_id: number | null;
+  advice: string | null;
 }

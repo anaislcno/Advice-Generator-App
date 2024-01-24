@@ -3,8 +3,8 @@ import { AdviceModel, FetchAdviceProps } from "../types/advice";
 
 const useAdviceFetcher = () => {
   const [advice, setAdvice] = useState<AdviceModel>({
-    slip_id: 0,
-    advice: "",
+    slip_id: null,
+    advice: null,
   });
 
   const [loading, setLoading] = useState(false);
@@ -24,7 +24,7 @@ const useAdviceFetcher = () => {
         }
       })
       .catch((err) => {
-        console.log(err.message);
+        console.error(err.message);
       })
       .finally(() => {
         setLoading(false);

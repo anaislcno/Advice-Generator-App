@@ -1,23 +1,5 @@
-:root {
-  --light-cyan: hsl(193, 38%, 86%);
-  --neon-green: rgb(82, 255, 168);
-  --greyish-blue: hsl(217, 19%, 38%);
-  --dark-greyish-blue: hsl(217, 19%, 24%);
-  --dark-blue: hsl(218, 23%, 16%);
-}
-
-.container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .card {
+  position: relative;
   background-color: var(--dark-greyish-blue);
   padding: 45px 35px;
   border-radius: 15px;
@@ -26,7 +8,6 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  position: relative;
 }
 
 .advice__nb {
@@ -46,10 +27,8 @@
 }
 
 .dice__btn {
-  background-image: url(./../../assets/images/icon-dice.svg);
-  background-repeat: no-repeat;
+  background: url(./../../assets/images/icon-dice.svg) no-repeat center center;
   background-color: var(--neon-green);
-  background-position: center;
   width: 65px;
   height: 65px;
   border: none;
