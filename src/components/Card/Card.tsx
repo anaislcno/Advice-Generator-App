@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./Card.css";
 import Divider from "./../../assets/images/pattern-divider-desktop.svg";
 import MobileDivider from "./../../assets/images/pattern-divider-mobile.svg";
@@ -33,7 +33,7 @@ const Card = () => {
     };
   };
 
-  const fetchAdvice = () => {
+  const fetchAdvice = useCallback(() => {
     setLoading(true);
     fetch("https://api.adviceslip.com/advice", { cache: "no-store" })
       .then((response) => response.json())
@@ -53,12 +53,11 @@ const Card = () => {
       .finally(() => {
         setLoading(false);
       });
-  };
+  }, []);
 
   useEffect(() => {
     fetchAdvice();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchAdvice]);
 
   return (
     <div className="container">
