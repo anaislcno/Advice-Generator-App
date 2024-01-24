@@ -1,18 +1,13 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import "./Card.css";
 import Divider from "./../../assets/images/pattern-divider-desktop.svg";
 import MobileDivider from "./../../assets/images/pattern-divider-mobile.svg";
 import Loader from "../Loader/Loader";
-
-type CardProps = {
-  slip_id: number;
-  advice: string;
-};
+import useAdviceFetcher from "../../data/AdviceFetcher";
 
 const Card = () => {
-  const [advice, setAdvice] = useState<CardProps>({ slip_id: 0, advice: "" });
+  const { advice, loading, fetchAdvice } = useAdviceFetcher();
   const [width, setWidth] = useState(window.innerWidth > 767);
-  const [loading, setLoading] = useState(false);
 
   const updateMedia = () => {
     setWidth(window.innerWidth > 767);
@@ -24,35 +19,6 @@ const Card = () => {
     return () => {
       window.removeEventListener("resize", updateMedia);
     };
-  }, []);
-
-  type fetchAdviceProps = {
-    slip: {
-      id: number;
-      advice: string;
-    };
-  };
-
-  const fetchAdvice = useCallback(() => {
-    setLoading(true);
-    fetch("https://api.adviceslip.com/advice", { cache: "no-store" })
-      .then((response) => response.json())
-      .then((data: fetchAdviceProps) => {
-        if (data.slip && data.slip.advice) {
-          setAdvice({
-            slip_id: data.slip.id,
-            advice: data.slip.advice,
-          });
-        } else {
-          console.error("API response is erroneous.");
-        }
-      })
-      .catch((err) => {
-        console.log(err.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
   }, []);
 
   useEffect(() => {
