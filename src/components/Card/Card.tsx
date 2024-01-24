@@ -34,11 +34,11 @@ const Card = () => {
         ) : (
           <p className="advice">"{advice.advice}"</p>
         )}
-        {width ? (
-          <img className="divider" src={Divider} alt="divider" />
-        ) : (
-          <img className="divider" src={MobileDivider} alt="divider" />
-        )}
+        <img
+          className="divider"
+          src={width ? Divider : MobileDivider}
+          alt="divider"
+        />
         <button onClick={fetchAdvice} className="dice__btn"></button>
       </section>
     </div>
