@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { AdviceModel, fetchAdviceProps } from "../types/advice";
+import { AdviceModel, FetchAdviceProps } from "../types/advice";
 
 const useAdviceFetcher = () => {
   const [advice, setAdvice] = useState<AdviceModel>({
@@ -13,7 +13,7 @@ const useAdviceFetcher = () => {
     setLoading(true);
     fetch("https://api.adviceslip.com/advice", { cache: "no-store" })
       .then((response) => response.json())
-      .then((data: fetchAdviceProps) => {
+      .then((data: FetchAdviceProps) => {
         if (data.slip && data.slip.advice) {
           setAdvice({
             slip_id: data.slip.id,

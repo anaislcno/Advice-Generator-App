@@ -1,5 +1,5 @@
 // Data structure fetched from API
-export interface fetchAdviceProps {
+export interface FetchAdviceProps {
   slip: {
     id: number;
     advice: string;

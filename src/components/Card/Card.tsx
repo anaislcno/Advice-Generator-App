@@ -9,6 +9,8 @@ const Card = () => {
   const { advice, loading, fetchAdvice } = useAdviceFetcher();
   const [width, setWidth] = useState(window.innerWidth > 767);
 
+  // Event for updating the divider img
+
   const updateMedia = () => {
     setWidth(window.innerWidth > 767);
   };
@@ -20,6 +22,8 @@ const Card = () => {
       window.removeEventListener("resize", updateMedia);
     };
   }, []);
+
+  // Initial loading of datas
 
   useEffect(() => {
     fetchAdvice();

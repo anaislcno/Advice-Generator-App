@@ -1,11 +1,7 @@
 import PropagateLoader from "react-spinners/PropagateLoader";
+import { LoaderProps } from "../../types/loader";
 
-type LoaderProps = {
-  color: string;
-  loading: boolean;
-};
-
-const Loader = ({ color, loading }: LoaderProps) => {
+const Loader: React.FC<LoaderProps> = ({ color, loading }) => {
   return (
     <PropagateLoader
       className="loader"
